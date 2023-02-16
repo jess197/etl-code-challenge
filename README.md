@@ -8,6 +8,7 @@
 ### 2. CHALLENGE
 1. You are required to pull all records from the airline delay dataset available here:
 https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json
+
 2. You should write a Dagster pipeline to load data from the JSON file above as partitioned CSV or JSON lines files in S3. 
    2.1 You can use Dagster cloud’s free trial period or install Dagster locally.
 3. To check if the step above worked, try querying the files using AWS Athena.
