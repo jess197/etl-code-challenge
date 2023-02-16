@@ -24,20 +24,33 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 
 ##### 3.1 DAGSTER PIPELINE
 <p> I started installing Dagster locally and writing my pipeline to send data to S3. I used 3 assets and 1 job.</p>
+
 <b>1. I created the method: </b> 
-``` get_json_data() ``` 
+
+```get_json_data()``` 
+
  - <p>To get the json through requests python package</p>
+
 <b>2. I created the method: </b> 
-``` convert_airline_json_to_csv() ``` 
+
+```convert_airline_json_to_csv()``` 
+
  - <p>To convert the json file to a csv file creating a dataframe and then converting to csv file, using Pandas library.</p>
+
 <b>3. I created the method: </b> 
-``` upload_json_to_s3_pipeline() ``` 
+
+```upload_json_to_s3_pipeline()``` 
+
  - <p>To receive the csv data and call send_airline_data_to_s3 method</p>
+
 <b>4. I created the method: </b> 
-``` send_airline_data_to_s3()``` 
+
+```send_airline_data_to_s3()``` 
+
  - <p>To send the csv file to S3 using boto3 AWS SDK for python, first configuring the client with the os package to protect the cloud credentials mantaining on virtual environment and then putting the object, before that I needed to create a bucket in S3 and provide the name</p>
 <b>5. Then I started the Dagster interface using dagit </b>
-``` dagit -f load_airline.py ``` 
+```dagit -f load_airline.py``` 
+
 <b>6. I went to my browser and navigated to http://localhost:3000/</b>
 <b>7. In the Dagster Interface I went to Launchpad and clicked on Launch Run</b>
     <b> 7.1 The Pipeline: </b>
@@ -71,14 +84,14 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 Answering the questions:
 
 <b> Q1: Which Airports have the highest number of canceled flights? </b>
-<b> A1: The top 3 are: 
+<b> A1: The top 3 were: 
   - <b> 1. Chicago O'Hare International/Chicago with almost 150k canceled flights;
   - <b> 2. Hartfield Jackson Atlanta International/Atlanta with a bit more than 85k and; </b>
   - <b> 3. Fort Worth International/Dallas - TX with a little bit more than 80k </b>
 <hr>
 
 <b> Q2: Which Airports have the highest average delay? </b>
-<b> A2: The top 3 are the same above: 
+<b> A2: The top 3 were the same above: 
   - <b> 1. Chicago O'Hare International/Chicago with the total of 435k minutes of delays from 2003 to 2016 ;
   - <b> 2. Hartfield Jackson Atlanta International/Atlanta with the total of 406k minutes of delays seeing 13 years of data; </b>
   - <b> 3. Fort Worth International/Dallas - TX with the total of 258k minutes of delays between 2003 to 2016</b>
@@ -97,7 +110,8 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
   - <b> Security. Fort Worth International/Dallas with 94 delays because of Security;
  
  ![Delay Weather](img/delay-weather.png)
-  - <b> Weather. Hartfield Jackson Atlanta International/Atlanta with 812 delays because of Weather </b>
+
+  - <b> Weather. Hartfield Jackson Atlanta International/Atlanta with 812 delays because of Weather; Dallas with 729 </b>
 
  ![Delay Late Aircraft](img/delay-late-aircraft.png)
   - <b>Late Aircraft. Hartfield Jackson Atlanta International/Atlanta and Chicago O'Hare International/Chicago with more than 3,5k delays because of Late Aicraft</b>
@@ -122,6 +136,7 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 ### 5. TECH STACK 
 Python
 Dagster Orchestrator 
+Dbeaver
 AWS 
     - S3
     - Glue Crawler
