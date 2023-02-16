@@ -10,7 +10,7 @@
 ![Airlines Json](https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json)
 
 - 2. You should write a Dagster pipeline to load data from the JSON file above as partitioned CSV or JSON lines files in S3. 
-  - 2.1 You can use Dagster cloud’s free trial period or install Dagster locally.
+  -  You can use Dagster cloud’s free trial period or install Dagster locally.
 1. To check if the step above worked, try querying the files using AWS Athena.
 
 2. Next, build a Glue job to load the S3 data into Redshift.
