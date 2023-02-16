@@ -6,17 +6,19 @@
 ![Project Architecture](img/project-architecture.png)
 
 ### 2. CHALLENGE
-1. You are required to pull all records from the airline delay dataset available here:
-https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json
+- 1. You are required to pull all records from the airline delay dataset available here:
+![Airlines Json](https://think.cs.vt.edu/corgis/datasets/json/airlines/airlines.json)
 
-2. You should write a Dagster pipeline to load data from the JSON file above as partitioned CSV or JSON lines files in S3. 
-   2.1 You can use Dagster cloud’s free trial period or install Dagster locally.
-3. To check if the step above worked, try querying the files using AWS Athena.
-4. Next, build a Glue job to load the S3 data into Redshift.
-5. Finally, build visualizations in Quicksight by querying Redshift to answer:
-<b> a. Which airports have the highest number of canceled flights? </b>
-<b> b. Which airports have the highest average delay?</b>
-<b> c. Which airports have the highest average delay per delay cause?</b> e.g. Late
+- 2. You should write a Dagster pipeline to load data from the JSON file above as partitioned CSV or JSON lines files in S3. 
+  - 2.1 You can use Dagster cloud’s free trial period or install Dagster locally.
+1. To check if the step above worked, try querying the files using AWS Athena.
+
+2. Next, build a Glue job to load the S3 data into Redshift.
+   
+3. Finally, build visualizations in Quicksight by querying Redshift to answer:
+- <b> a. Which airports have the highest number of canceled flights? </b>
+- <b> b. Which airports have the highest average delay?</b>
+- <b> c. Which airports have the highest average delay per delay cause?</b> e.g. Late
 aircraft, weather, or security. Use a filter to be able to change the delay cause.
 
 
@@ -60,6 +62,7 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 
 ##### 3.2 AWS SERVICES
 <p><b>IMPORTANT!</b> - To be able to send data from dagster to S3, I needed to create a role in IAM to provide this access. 
+
 - <p>The data was correctly sent to my bucket in S3 called <b>'airline_statistics_input'</b></p>
 
 ![S3 Airline Statistics Input](img/S3-airlines-statistics-input.png)
@@ -134,20 +137,20 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 
 
 ### 5. TECH STACK 
-Python
-Dagster Orchestrator 
-Dbeaver
-AWS 
-    - S3
-    - Glue Crawler
-    - Glue Data Catalog
-    - Glue Job
-    - Athena
-    - DW Redshift
-    - QhickSight 
-    - VPC
-    - CloudWatch
-    - IAM
+- Python
+- Dagster Orchestrator 
+- Dbeaver
+- AWS: 
+   - S3
+   - Glue Crawler
+   - Glue Data Catalog
+   - Glue Job
+   - Athena
+   - DW Redshift
+   - QhickSight 
+   - VPC
+   - CloudWatch
+   - IAM
 
 
 
