@@ -54,11 +54,14 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 ```dagit -f load_airline.py``` 
 
 <b>6. I went to my browser and navigated to http://localhost:3000/</b>
+
 <b>7. In the Dagster Interface I went to Launchpad and clicked on Launch Run</b>
-    <b> 7.1 The Pipeline: </b>
-    ![Airline Pipeline](img/airline-dagster-pipeline.png)
-    <b>Job Run:</b>
-    ![Upload Json to S3 Pipeline](img/job-run.png)
+  - <b> 7.1 The Pipeline: </b>
+    
+  ![Airline Pipeline](img/airline-dagster-pipeline.png)
+
+  - <b>Job Run:</b>
+  ![Upload Json to S3 Pipeline](img/job-run.png)
 
 ##### 3.2 AWS SERVICES
 <p><b>IMPORTANT!</b> - To be able to send data from dagster to S3, I needed to create a role in IAM to provide this access. 
@@ -75,8 +78,11 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 - <p>Then I remake the process created two crawlers, one to catch this partitioned data and created a Data Catalog with it and the other to be possible to create the glue job mapping the source (the one) and the target (the second) that was a table in Redshift.
 
 - <p> Created an Amazon Redshift cluster (free option), had to set some policies and roles to be able to have access to these services, needed to configurate somethings in the VPC (Like endpoints and security groups) and created connection using my JDBC URL between glue and Redshift to make a glue process and be possible to transfer the data that was in the Data Catalog to DW Redshift</p>
+
 - <b>Glue Job S3 to Redshift</b>
+
 ![Glue Job S3 to Redshift](img/Glue-job-S3-to-redshift.png)
+
 <hr>
 
 - <b>Redshift Query</b>
@@ -103,21 +109,27 @@ Answering the questions:
 
 <hr>
 
-![Quicksight Chart 2](img/Quicksight2.png)
+
 
 <b> Q3: Which airports have the highest average delay per delay cause? e.g. Late
 aircraft, weather, or security. Use a filter to be able to change the delay cause. </b>
+
+![Quicksight Chart 2](img/Quicksight2.png)
+
 <b> A3:  
 
+- <b> Security. Fort Worth International/Dallas with 94 delays because of Security;
+
  ![Delay Security](img/delay-security.png)
-  - <b> Security. Fort Worth International/Dallas with 94 delays because of Security;
- 
+
+- <b> Weather. Hartfield Jackson Atlanta International/Atlanta with 812 delays because of Weather; Dallas with 729 </b> 
+
  ![Delay Weather](img/delay-weather.png)
 
-  - <b> Weather. Hartfield Jackson Atlanta International/Atlanta with 812 delays because of Weather; Dallas with 729 </b>
-
+- <b>Late Aircraft. Hartfield Jackson Atlanta International/Atlanta and Chicago O'Hare International/Chicago with more than 3,5k delays because of Late Aicraft</b>
+ 
  ![Delay Late Aircraft](img/delay-late-aircraft.png)
-  - <b>Late Aircraft. Hartfield Jackson Atlanta International/Atlanta and Chicago O'Hare International/Chicago with more than 3,5k delays because of Late Aicraft</b>
+  
  
 <hr>
 
