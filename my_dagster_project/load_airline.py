@@ -13,7 +13,7 @@ def get_json_data():
     return result.json()
 
 @asset
-def fix_airline_csv():
+def convert_airline_json_to_csv():
     json_data = get_json_data()
     df = pd.DataFrame(
             columns=[
@@ -120,5 +120,5 @@ def send_airline_data_to_s3(airline_data):
 
 @job
 def upload_json_to_s3_pipeline():
-    airline_data = fix_airline_csv()
+    airline_data = convert_airline_json_to_csv()
     send_airline_data_to_s3(airline_data)
