@@ -34,7 +34,7 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
  - <p>To receive the csv data and call send_airline_data_to_s3 method</p>
 <b>4. I created the method: </b> 
 ``` send_airline_data_to_s3()``` 
- - <p>To send the csv file to S3 using boto3 AWS SDK for python, first configuring the client with the os package to protect the cloud credentials mantaining on virtual envoironment and then putting the object, before that I needed to create a bucket in S3 and provide the name</p>
+ - <p>To send the csv file to S3 using boto3 AWS SDK for python, first configuring the client with the os package to protect the cloud credentials mantaining on virtual environment and then putting the object, before that I needed to create a bucket in S3 and provide the name</p>
 <b>5. Then I started the Dagster interface using dagit </b>
 ``` dagit -f load_airline.py ``` 
 <b>6. I went to my browser and navigated to http://localhost:3000/</b>
@@ -57,22 +57,25 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 ![S3 Curated Airline Data](img/S3-curated_airline_data.png)
 - <p>Then I remake the process created two crawlers, one to catch this partitioned data and created a Data Catalog with it and the other to be possible to create the glue job mapping the source (the one) and the target (the second) that was a table in Redshift.
 
-- <p> Created an Amazon Redshift cluster (free option), had to set some policys and roles to be able to have access to these services, needed to configurate somethings in the VPC (Like endpoints and security groups) and created connection using my JDBC URL between glue and Redshift to make a glue process and be possible to transfer the data that was in the Data Catalog to DW Redshift</p>
+- <p> Created an Amazon Redshift cluster (free option), had to set some policies and roles to be able to have access to these services, needed to configurate somethings in the VPC (Like endpoints and security groups) and created connection using my JDBC URL between glue and Redshift to make a glue process and be possible to transfer the data that was in the Data Catalog to DW Redshift</p>
 - <b>Glue Job S3 to Redshift</b>
 ![Glue Job S3 to Redshift](img/Glue-job-S3-to-redshift.png)
 <hr>
 
-- <b>Reshift Query</b>
+- <b>Redshift Query</b>
 ![Redshift Query](img/redshift-query.png)
 
 - <p> Then I created an account in Quicksight, needed to configurate VPC connection and security groups providing the region CIDR to be able to access this service and connect to Redshift and create the DataViz to answer the questions that the challenge proposed.</p>
+  
 Answering the questions:
+
 <b> Q1: Which Airports have the highest number of canceled flights? </b>
 <b> A1: The top 3 are: 
   - <b> 1. Chicago O'Hare International/Chicago with almost 150k canceled flights;
   - <b> 2. Hartfield Jackson Atlanta International/Atlanta with a bit more than 85k and; </b>
   - <b> 3. Fort Worth International/Dallas - TX with a little bit more than 80k </b>
 <hr>
+
 <b> Q2: Which Airports have the highest average delay? </b>
 <b> A2: The top 3 are the same above: 
   - <b> 1. Chicago O'Hare International/Chicago with the total of 435k minutes of delays from 2003 to 2016 ;
@@ -106,12 +109,13 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 
 
 ### 4. PROBLEMS FACED DURING THE RESOLUTION 
-My major problem in this project was facing a type of permission that I didn't knew that was necessary to Glue access S3 and catch data to send to Redshift and this link helped me a lot: 
+1. My major problem in this project was facing a type of permission that I didn't knew that was necessary to Glue access S3 and catch data to send to Redshift and this link helped me a lot: 
     - [S3 Permission](https://help.mypurecloud.com/articles/create-iam-resources-for-aws-s3-bucket/)
     - I even opened a stack overflow question, that I must answer later, because I was out of any clue about what was happening and my AWS Billing was sad :'(
     - [Stack Overflow Question](https://stackoverflow.com/questions/75462854/aws-glue-job-from-s3-bucket-to-redshift-throws-no-such-bucket)
-    - I had some problems with VPC and security group (Redshift and Quicksight) but it was easely than this one above. 
-    - My aproach to convert the json to csv, was because a problem that I encontered and didn't find any solution. That was: When I crawled the data to data catalog it went just a column called array and didnt make the table definitions corretly, so to not lose time my option was convert to csv. 
+  
+2. I had some problems with VPC and security group (Redshift and Quicksight) but it was easily than this one above. 
+3. My aproach to convert the json to csv, was because a problem that I encountered and didn't find any solution. That was: When I crawled the data to data catalog it went just a column called array and didnt make the table definitions corretly, so to not lose time my option was convert to csv. 
 
 
 ### 5. TECH STACK 
