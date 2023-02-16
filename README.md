@@ -106,9 +106,9 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
 
 
 ### 4. PROBLEMS FACED DURING THE RESOLUTION 
-My major problem in this project was facing a permission that I didn't knew that was necessary to Glue access S3 and catch data to send to Redshift and this link helped me a lot: 
+My major problem in this project was facing a type of permission that I didn't knew that was necessary to Glue access S3 and catch data to send to Redshift and this link helped me a lot: 
     - [S3 Permission](https://help.mypurecloud.com/articles/create-iam-resources-for-aws-s3-bucket/)
-    - I even opened a stack overflow question, that I must answer later, because I was out of any glue about what was happening (hahaha sorry for the joke here) and my AWS Billing was sad :'(
+    - I even opened a stack overflow question, that I must answer later, because I was out of any clue about what was happening and my AWS Billing was sad :'(
     - [Stack Overflow Question](https://stackoverflow.com/questions/75462854/aws-glue-job-from-s3-bucket-to-redshift-throws-no-such-bucket)
     - I had some problems with VPC and security group (Redshift and Quicksight) but it was easely than this one above. 
     - My aproach to convert the json to csv, was because a problem that I encontered and didn't find any solution. That was: When I crawled the data to data catalog it went just a column called array and didnt make the table definitions corretly, so to not lose time my option was convert to csv. 
