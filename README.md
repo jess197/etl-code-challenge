@@ -159,7 +159,7 @@ aircraft, weather, or security. Use a filter to be able to change the delay caus
    - Glue Job
    - Athena
    - DW Redshift
-   - QhickSight 
+   - QuickSight 
    - VPC
    - CloudWatch
    - IAM
